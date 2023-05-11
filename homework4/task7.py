@@ -3,6 +3,15 @@
 # [1, 0, 1, 2, 0, 1, 3]  => [1, 1, 2, 1, 3, 0, 0]
 
 def move_zeros(lst):
+    del_num = 0
+    quantity = 0
+    while del_num in lst:
+        lst.remove(del_num)
+        quantity += 1
+
+    while quantity > 0:
+        lst = lst + [0]
+        quantity -= 1
     # Здесь нужно написать код
     return lst
 

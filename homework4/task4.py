@@ -7,8 +7,18 @@
 # 999 --> 4 (потому что 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, наконец 1*2 = 2, Итого 4 итерации)
 # 4 --> 0 (4 уже одна цифра, а значит мы проделали 0 итераций)
 
+def umn_digits(num):
+    our_umn = 1
+    for i in str(num):
+        our_umn *= int(i)
+    return our_umn
+
 def multiplication_chain(num):
-    # Здесь нужно написать код
+    count_multy = 0
+    while num > 9:
+        num = umn_digits(num)
+        count_multy += 1
+
     return count_multy
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

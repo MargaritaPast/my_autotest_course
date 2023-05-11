@@ -4,8 +4,15 @@
 # Либо "Не треугольник", если по переданным параметрам невозможно построить треугольник
 # Например 1, 1, 1 --> "Равносторонний"
 
-def which_triangle(a, b, c):
-    # Здесь нужно написать код
+def which_triangle(a, b, c, type_triangle = None):
+    if not (a + b > c and b + c > a and a + c > b):
+        type_triangle = 'Не треугольник'
+    elif a == b == c:
+        type_triangle = 'Равносторонний'
+    elif a == b and a != c or a == c and a != b or b == c and b != a:
+        type_triangle = 'Равнобедренный'
+    else:
+        type_triangle = 'Обычный'
     return type_triangle
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
