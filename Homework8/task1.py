@@ -17,21 +17,23 @@
 import unittest  # Не удалять
 
 def treatment_sum(our_tuple):
-    try:
-        if len(our_tuple) == 2:  #Если в кортеже 2 элемента
-            result = our_tuple[0] + our_tuple[1]
-            return result
-    except TypeError:  #Ошибка типа
-        return 'Нельзя сложить эти данные'
+    if len(our_tuple) > 2:  #Если в кортеже > 2 элементов
+        raise Exception('Много данных')  #Исключение
 
     try:
         if len(our_tuple) < 2:  #Если в кортеже < 2 элементов
-            raise IndexError
-    except IndexError:  #Ошибка индекса
-        return 'Недостаточно данных'
+            raise IndexErrors
+        if len(our_tuple) == 2:  #Если в кортеже 2 элемента
+            result = our_tuple[0] + our_tuple[1]
+            return result
+    except Exception as i:
+        if isinstance(i, TypeError):
+            return 'Нельзя сложить эти данные'
+        elif isinstance(i, IndexError):
+            return 'Недостаточно данных'
 
-    if len(our_tuple) > 2:  #Если в кортеже > 2 элементов
-        raise Exception('Много данных')  #Исключение
+
+
 
 # Здесь пишем код
 
